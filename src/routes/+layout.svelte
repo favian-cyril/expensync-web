@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-	<title>Supabase Auth Helpers Demo</title>
+	<title>Expensync</title>
 </svelte:head>
 
 <slot />
