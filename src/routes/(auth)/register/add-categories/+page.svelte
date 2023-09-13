@@ -26,7 +26,7 @@
         e.preventDefault();
         const formData = new FormData();
         formData.append('categories', JSON.stringify(categories));
-        await fetch('/add-categories', {
+        await fetch('/register/add-categories', {
             method: 'POST',
             body: formData,
         });
