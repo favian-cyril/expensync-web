@@ -17,13 +17,14 @@
 
 <section>
 	<div class="container mx-auto w-fit border-solid border-2 border-primary px-7 py-5 rounded-md">
-		<form class="flex flex-wrap mb-6 mx-auto justify-center" action="/?/signin-with-oauth" method="post" use:enhance={handleSubmit}>
+		<!-- Issue with redirect, disabled for now -->
+		<!-- <form class="flex flex-wrap mb-6 mx-auto justify-center" action="?/signin-with-oauth" method="post" use:enhance={handleSubmit}>
 			<button class="btn btn-outline" name="provider" value="google" type="submit">
 				<i class="fa-brands fa-google mr-2"></i>
 				Sign in with Google
 			</button>
 		</form>
-		<div class="divider" />
+		<div class="divider" /> -->
 		<h1 class="text-2xl font-bold text-center">Sign in to ExpenSync</h1>
 		{#if form?.error}
 			<div class="alert alert-error mt-2">{form?.error}</div>
@@ -105,9 +106,10 @@
 				<button disabled={loading} class="btn btn-outline btn-block mt-4 text-lg text-center">Sign in</button>
 			</form>
 			<div class="mt-6">
-				<p class="text-sm text-center">
+				<!-- Issue with magiclink, disabled for now -->
+				<!-- <p class="text-sm text-center">
 					Sign in with <a href="?auth-type=magiclink" class="font-semibold">magiclink</a>
-				</p>
+				</p> -->
 				<p class="text-sm text-center">
 					Don't have an account? <a href="?auth-type=signup" class="font-semibold">Sign up</a>
 				</p>
