@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ parent, locals: { supabase }, }) =>
         currency,
         invoices: invoiceData?.map(val => ({
             ...val,
-            other_amounts: val.other_amounts.filter(i => !!i)
+            other_amounts: new Set(val.other_amounts.filter(i => !!i))
         })),
         categories,
     };
