@@ -13,8 +13,7 @@ export const actions: Actions = {
             }))
         )
         if (error) {
-            console.log(error);
-            return { error }
+            return { error: error.message }
         }
         
         throw redirect(303, '/register/setup-email')

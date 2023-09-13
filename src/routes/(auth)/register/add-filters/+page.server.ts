@@ -1,4 +1,5 @@
 import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REDIRECT_SETUP_EMAIL_URL } from '$env/static/private';
+import { redirect } from '@sveltejs/kit';
 import { OAuth2Client } from 'google-auth-library';
 import type { PageServerLoad, Actions } from './$types';
 
@@ -59,8 +60,11 @@ export const actions: Actions = {
                 filter_id: response[index].data.id
             }))
         )
-        return {
-            error
+        if (error) {
+            return {
+                error: error?.message
+            }
         }
+        throw redirect(303, '/dashboard')
     }
 }

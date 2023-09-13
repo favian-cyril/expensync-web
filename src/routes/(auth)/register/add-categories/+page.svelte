@@ -1,13 +1,15 @@
 <script lang="ts">
     import ColorPicker from '$lib/components/ColorPicker.svelte';
     import colors from 'tailwindcss/colors';
-    export let data;
+	import type { ActionData } from './$types';
+    export let form: ActionData;
     let categories: {value:string, color:string}[] = [
         { value: 'Transportation', color: colors.cyan[500] },
         { value: 'Rent', color: colors.emerald[500] },
         { value: 'Food', color: colors.indigo[500] },
         { value: 'Groceries', color: colors.rose[500] }
     ];
+    let loading = false;
     let newCat = '';
     let newColor = '';
     function addCategory() {
@@ -23,6 +25,7 @@
         categories = temp;
     }
     async function handleSubmit (e: Event) {
+        loading = true;
         e.preventDefault();
         const formData = new FormData();
         formData.append('categories', JSON.stringify(categories));
@@ -54,9 +57,16 @@
             <button class="btn btn-primary" on:click={addCategory} type="button">Add</button>
         </div>
     </div>
-    <form on:submit={handleSubmit}>
-        <div class="flex flex-wrap w-full gap-2 justify-end mt-5">
-            <button class="btn" disabled={categories.length === 0} type="submit">Save and next</button>
-        </div>
-    </form>
+    {#if loading}
+        <span class="loading loading-spinner loading-sm"></span>
+    {:else}
+        <form on:submit={handleSubmit}>
+            <div class="flex flex-wrap w-full gap-2 justify-end mt-5">
+                <button class="btn" disabled={categories.length === 0} type="submit">Save and next</button>
+            </div>
+        </form>
+    {/if}
+    {#if form?.error}
+        <div class="alert alert-error mt-2">{form?.error}</div>
+    {/if}
 </section>

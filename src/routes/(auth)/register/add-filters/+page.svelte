@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
     import { page } from '$app/stores';
-	import type { PageData } from './$types';
+	import type { ActionData, PageData } from './$types';
     export let data: PageData;
+    export let form: ActionData;
+    let loading = false;
     const isAuth = $page.url.searchParams.get('auth') === 'true';
     type Form = { email: string, category: string | null, remove_from_inbox: boolean, word_filter: string };
     const emptyField: Form = {
@@ -18,17 +20,16 @@
         formArray = formArray;
     }
     async function handleSubmit (e: Event) {
+        loading = true;
         e.preventDefault();
         const formData = new FormData();
         const errors = formArray.filter(item => item.email === '')
-        
         if (errors.length === 0) {
             formData.append('formArray', JSON.stringify(formArray));
-            const res = await fetch('/register/add-filters', {
+            await fetch('/register/add-filters', {
                 method: 'POST',
                 body: formData,
             });
-            if (!res.error) goto('/dashboard')
         }
     }
     function handleRemove (idx: number)  {
@@ -91,9 +92,16 @@
             <button class="btn w-full btn-outline"><i class="fa-regular fa-envelope"></i>Authorize Gmail</button>
         </a>
     {/if}
-    <form on:submit={handleSubmit}>
-        <div class="flex flex-wrap w-full gap-2 justify-end mt-2">
-            <button class="btn" type="submit">Save</button>
-        </div>
-    </form>
+    {#if loading}
+        <span class="loading loading-spinner loading-sm"></span>
+    {:else}
+        <form on:submit={handleSubmit}>
+            <div class="flex flex-wrap w-full gap-2 justify-end mt-2">
+                <button class="btn" type="submit">Save</button>
+            </div>
+        </form>
+    {/if}
+    {#if form?.error}
+        <div class="alert alert-error mt-2">{form?.error}</div>
+    {/if}
 </section>
