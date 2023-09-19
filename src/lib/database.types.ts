@@ -159,7 +159,7 @@ export interface Database {
           is_deleted: boolean
           remove_from_inbox: boolean
           updated_at: string
-          user_email_id: string
+          user_email: string | null
           user_id: string
           uuid: string
           word_filter: string[] | null
@@ -172,7 +172,7 @@ export interface Database {
           is_deleted?: boolean
           remove_from_inbox?: boolean
           updated_at?: string
-          user_email_id: string
+          user_email?: string | null
           user_id: string
           uuid?: string
           word_filter?: string[] | null
@@ -185,7 +185,7 @@ export interface Database {
           is_deleted?: boolean
           remove_from_inbox?: boolean
           updated_at?: string
-          user_email_id?: string
+          user_email?: string | null
           user_id?: string
           uuid?: string
           word_filter?: string[] | null
@@ -198,10 +198,10 @@ export interface Database {
             referencedColumns: ["uuid"]
           },
           {
-            foreignKeyName: "SenderEmail_user_email_id_fkey"
-            columns: ["user_email_id"]
+            foreignKeyName: "SenderEmail_user_email_fkey"
+            columns: ["user_email"]
             referencedRelation: "UserEmail"
-            referencedColumns: ["uuid"]
+            referencedColumns: ["email"]
           },
           {
             foreignKeyName: "SenderEmail_user_id_fkey"

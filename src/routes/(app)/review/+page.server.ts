@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ parent, locals: { supabase }, }) =>
         { data: categories }
     ] = await Promise.all([
 		supabase.from('User').select('currency_object').limit(1).single(),
-        supabase.from('Invoice').select('*, Category(*), SenderEmail(email)').eq('is_valid', false).order('created_at', { ascending: false }),
+        supabase.from('Invoice').select('*, Category(*), SenderEmail(email)').eq('is_deleted', false).eq('is_valid', false).order('created_at', { ascending: false }),
         supabase.from('Category').select('*'),
     ])
     const currency = JSON.parse(currencyData?.currency_object || '');
@@ -33,16 +33,17 @@ export const actions: Actions = {
         const data = await request.formData();
         const parsedData = JSON.parse(data.get('data') as string);
         const deletedData = JSON.parse(data.get('deleted') as string);
+        
         try {
             await Promise.all(parsedData.map((data: FormItem) => (
                 supabase.from('Invoice').update({ vendor: data.vendor, category_id: data.category_id, amount: parseInt(data.amount), is_valid: true }).eq('uuid', data.uuid)
             )));
+            if (deletedData.length > 0) {
+                await supabase.from('Invoice').update({ is_deleted: true }).in('uuid', deletedData.map((i: FormItem) => i.uuid))
+            }
         } catch (e) {
             console.log(e);
         }
         
-        if (deletedData.length > 0) {
-            await supabase.from('Invoice').update({ is_deleted: true }).in('uuid', deletedData.map((i: FormItem) => i.uuid))
-        }
     }
 }

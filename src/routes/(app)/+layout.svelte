@@ -13,7 +13,6 @@
         if (val) NProgress.start()
         else NProgress.done()
     })
-	let loading = false;
 	let minimize = false;	
 </script>
 
@@ -22,28 +21,6 @@
 </svelte:head>
 
 <main>
-	<!-- <div class="navbar-menu my-4">
-		<div class="navbar-start">
-			<a class="my-2" href="/">Supabase Auth Helpers Demo</a>
-		</div>
-		<div class="navbar-end">
-			{#if $page.data.session}
-				<form action="/logout" method="post" use:enhance={handleLogout}>
-					<button disabled={loading} type="submit">Sign out</button>
-				</form>
-			{/if}
-		</div>
-	</div> -->
-	<!-- <div class="navbar bg-base-100 shadow-md border-solid border-2 border-primary w-full">
-		<div class="flex-1">
-			<a class="btn btn-ghost normal-case text-xl">ExpenSync Dashboard</a>
-		</div>
-		<div class="flex-none">
-			<form action="/logout" method="post" use:enhance={handleLogout}>
-				<button class="btn btn-ghost" disabled={loading} type="submit">Sign out</button>
-			</form>
-		</div>
-	</div> -->
 	<div class="flex flex-row h-max min-h-screen">
 		<ul class={`menu bg-base-200 ${minimize ? 'w-14' : 'w-1/6'} border-r-2 border-primary transition-width ease-out duration-200`}>
 			<div class="flex flex-row justify-between p-2 shadow-md">

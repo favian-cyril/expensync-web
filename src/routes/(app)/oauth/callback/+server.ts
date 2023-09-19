@@ -1,6 +1,7 @@
 import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REDIRECT_SETUP_EMAIL_URL } from '$env/static/private';
 import { redirect, type RequestHandler } from '@sveltejs/kit';
 import { OAuth2Client } from 'google-auth-library';
+import { google } from 'googleapis';
 
 export const GET: RequestHandler = async ({ url, locals: { supabase, getSession }, cookies }) => {
 	const code = url.searchParams.get('code');
@@ -19,10 +20,16 @@ export const GET: RequestHandler = async ({ url, locals: { supabase, getSession 
     const session = await getSession();
     const expires = tokens.tokens.expiry_date ? new Date(tokens.tokens.expiry_date) : undefined;
     cookies.set('accessToken', tokens.tokens.access_token || '', { path: '/', expires });
-    
-	if (email) {
+    const oauth2 = google.oauth2({
+        auth: oauth2Client,
+        version: 'v2',
+      });
+  
+    if (email) {
+        const userInfo = await oauth2.userinfo.get();
+        const userEmail = userInfo.data.email || email;
         await supabase.from('UserEmail').insert({
-            email,
+            email: userEmail,
             user_id: session?.user.id
         })
 	}

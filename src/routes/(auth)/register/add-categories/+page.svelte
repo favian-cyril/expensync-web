@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
     import ColorPicker from '$lib/components/ColorPicker.svelte';
     import colors from 'tailwindcss/colors';
 	import type { ActionData } from './$types';
@@ -10,6 +11,7 @@
         { value: 'Groceries', color: colors.rose[500] }
     ];
     let loading = false;
+    let error = '';
     let newCat = '';
     let newColor = '';
     function addCategory() {
@@ -18,6 +20,8 @@
         && newColor !== '') {
             categories = [...categories, { value: newCat.trim(), color: newColor }]; // Add new tag to the array
             newCat = ''; // Clear the input field
+        } else {
+            error = 'Cannot add category. Please check if the category already exists';
         }
     }
     function deleteTag(category: string) {        
@@ -29,10 +33,16 @@
         e.preventDefault();
         const formData = new FormData();
         formData.append('categories', JSON.stringify(categories));
-        await fetch('/register/add-categories', {
+        const res = await fetch('/register/add-categories', {
             method: 'POST',
             body: formData,
         });
+        const response = await res.json();
+        if (response?.error) {
+            error = response.error
+        } else {
+            goto('/register/setup-email');
+        }
     }
 </script>
 
@@ -57,16 +67,12 @@
             <button class="btn btn-primary" on:click={addCategory} type="button">Add</button>
         </div>
     </div>
-    {#if loading}
-        <span class="loading loading-spinner loading-sm"></span>
-    {:else}
-        <form on:submit={handleSubmit}>
-            <div class="flex flex-wrap w-full gap-2 justify-end mt-5">
-                <button class="btn" disabled={categories.length === 0} type="submit">Save and next</button>
-            </div>
-        </form>
-    {/if}
-    {#if form?.error}
-        <div class="alert alert-error mt-2">{form?.error}</div>
+    <form on:submit={handleSubmit}>
+        <div class="flex flex-wrap w-full gap-2 justify-end mt-5">
+            <button class="btn btn-primary" disabled={categories.length === 0 || loading} type="submit">Save and next</button>
+        </div>
+    </form>
+    {#if form?.error || error.length}
+        <div class="alert alert-error mt-2">{form?.error || error}</div>
     {/if}
 </section>

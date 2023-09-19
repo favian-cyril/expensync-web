@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
     import stepone from '$lib/assets/step-1.png';
     import steptwo from '$lib/assets/step-2.png';
     import stepthree from '$lib/assets/step-3.png';
@@ -53,5 +52,7 @@
             <img src={stepsix} alt="Step Six" />
         </div>
     </div>
-    <button class="btn btn-primary w-full" on:click={() => goto('/register/add-filters')}>Proceed</button>
+    <a href="/register/add-filters">
+        <button class="btn btn-primary w-full">Proceed</button>
+    </a>
 </section>

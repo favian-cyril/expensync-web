@@ -4,6 +4,7 @@
 	import { dinero } from "dinero.js";
 	import type { PageData } from "./$types";
     import { queryParam, queryParameters, ssp } from "sveltekit-search-params";
+	import { page } from "$app/stores";
 
     export let data: PageData;
     
@@ -51,11 +52,11 @@
     function clearArrayFilter (name: string) {
         $filters[name] = [];
     }
-    
     $: pages = new Array(data.pages);
 </script>
 
 <div class="mx-auto flex justify-center flex-col w-fit">
+    <a class="btn btn-primary w-fit mb-2 self-end" href={`/expenses/download${$page.url.search}`} target="_blank">Download CSV</a>
     <table class="table table-zebra table-auto">
         <thead>
             <tr>

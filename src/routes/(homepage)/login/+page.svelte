@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { applyAction, enhance, type SubmitFunction } from '$app/forms';
-	import { page } from '$app/stores';
+	import { navigating, page } from '$app/stores';
+	import NProgress from 'nprogress';
+	import 'nprogress/nprogress.css';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
@@ -13,10 +15,15 @@
 			loading = false;
 		};
 	};
+
+	navigating.subscribe((val) => {
+        if (val) NProgress.start()
+        else NProgress.done()
+    })
 </script>
 
 <section>
-	<div class="container mx-auto w-fit border-solid border-2 border-primary px-7 py-5 rounded-md">
+	<div class="container mx-auto w-fit border-solid border-2 border-primary px-7 py-5 rounded-md mt-10 mb-24">
 		<!-- Issue with redirect, disabled for now -->
 		<!-- <form class="flex flex-wrap mb-6 mx-auto justify-center" action="?/signin-with-oauth" method="post" use:enhance={handleSubmit}>
 			<button class="btn btn-outline" name="provider" value="google" type="submit">

@@ -46,6 +46,7 @@
 			}
 		})
 	})
+	const increasePercent = (data.comparisonPercent - 1) * 100;
 </script>
 
 <div class="flex flex-col mx-auto xl:w-3/4 w-full p-2 xl:p-0 gap-2 mb-5">
@@ -67,6 +68,10 @@
 			<div class="stat">
 				<div class="stat-title">Average Expense</div>
 				<div class="stat-value">{data.avgAmount}</div>
+				<div class="stat-desc">
+					{`Last ${$tab} avg: ${data.lastAvg}`}
+					<span class={data.comparisonPercent > 1 ? `text-red-500` : `text-green-500`}>{data.comparisonPercent > 1 ? `${increasePercent.toFixed(2)}% ↗︎` : `${parseFloat(data.comparisonPercent.toFixed(2)) * 100}% ↘︎`}</span>
+				</div>
 			</div>
 			<div class="stat">
 				<div class="stat-title">Total Expenses</div>

@@ -1,4 +1,4 @@
-import { redirect, type Actions } from "@sveltejs/kit";
+import type { Actions } from "@sveltejs/kit";
 
 export const actions: Actions = {
     default: async ({ request, locals: { supabase, getSession } }) => {
@@ -15,7 +15,5 @@ export const actions: Actions = {
         if (error) {
             return { error: error.message }
         }
-        
-        throw redirect(303, '/register/setup-email')
     }
 };

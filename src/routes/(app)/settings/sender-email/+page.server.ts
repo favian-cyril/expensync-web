@@ -65,7 +65,7 @@ export const actions: Actions = {
             remove_from_inbox,
             filter_id: res.data.id,
             category_id: category === 'null' ? null : category,
-            user_email_id: session.user.email
+            user_email: session.user.email
         })
         if (error) {
             console.log(error);
