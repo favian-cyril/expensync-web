@@ -19,32 +19,36 @@
 		if (pieChart) pieChart?.destroy();
 		if (lineChart) lineChart?.destroy();
 		const ctxPie = pieChartCanvas.getContext('2d')
-		pieChart = new Chart(ctxPie, {
-			type: 'doughnut',
-			data: {
-				labels: data.pieChartData?.map(val => val.category_name),
-				datasets: [{
-					label: 'Amount',
-					data: data.pieChartData?.map(val => val.total_amount),
-					backgroundColor: data.pieChartData?.map(val => val.category_color || '#666666'),
-					hoverOffset: 4
-				}],
-			}
-		});
+		if (ctxPie) {
+			pieChart = new Chart(ctxPie, {
+				type: 'doughnut',
+				data: {
+					labels: data.pieChartData?.map(val => val.category_name),
+					datasets: [{
+						label: 'Amount',
+						data: data.pieChartData?.map(val => val.total_amount),
+						backgroundColor: data.pieChartData?.map(val => val.category_color || '#666666'),
+						hoverOffset: 4
+					}],
+				}
+			});
+		}
 		const ctxLine = lineChartCanvas.getContext('2d');
-		lineChart = new Chart(ctxLine, {
-			type: 'line',
-			data: {
-				labels: data.lineChartData?.map(val => val.invoice_date),
-				datasets: [{
-					label: 'Expenses over time',
-					data: data.lineChartData?.map(val => val.total_amount),
-					fill: false,
-					borderColor: colors.blue[500],
-					tension: 0.05
-				}]
-			}
-		})
+		if (ctxLine) {
+			lineChart = new Chart(ctxLine, {
+				type: 'line',
+				data: {
+					labels: data.lineChartData?.map(val => val.invoice_date),
+					datasets: [{
+						label: 'Expenses over time',
+						data: data.lineChartData?.map(val => val.total_amount),
+						fill: false,
+						borderColor: colors.blue[500],
+						tension: 0.05
+					}]
+				}
+			})
+		}
 	})
 	const increasePercent = (data.comparisonPercent - 1) * 100;
 </script>
