@@ -27,7 +27,7 @@
 <slot />
 <footer class="footer p-10 bg-neutral text-neutral-content justify-evenly">
     <nav>
-      <header class="footer-title">Company</header> 
+      <header class="footer-title">About Us</header> 
       <!-- <a class="link link-hover" >About us</a> -->
       <a class="link link-hover" href="mailto:support@expensync.com">Contact</a>
     </nav> 

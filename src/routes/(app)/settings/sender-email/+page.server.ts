@@ -19,7 +19,6 @@ export const load: PageServerLoad = async ({ parent, locals: { supabase }, cooki
     const state = JSON.stringify({ redirectUrl: '/settings/sender-email?auth=true' });
     const scopes = [
         'https://www.googleapis.com/auth/gmail.settings.basic',
-        'https://www.googleapis.com/auth/gmail.settings.sharing',
         'https://www.googleapis.com/auth/userinfo.email',
     ];
     const url = token ? null : oauth2Client.generateAuthUrl({
