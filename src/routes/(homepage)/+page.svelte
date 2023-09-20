@@ -35,6 +35,7 @@
         
         function draw() {
             // Clear the canvas
+            if (!canvas || !ctx) return null;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.imageSmoothingEnabled = true;
             

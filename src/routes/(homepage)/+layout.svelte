@@ -1,13 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { themeChange } from 'theme-change';
 	import type { LayoutData } from './$types';
 	export let data: LayoutData;
 
 	$: ({ session } = data);
-    onMount(() => {
-		themeChange(false)
-    })
 </script>
 
 <div class="navbar bg-base-100 shadow-sm px-10 sticky top-0 z-10">

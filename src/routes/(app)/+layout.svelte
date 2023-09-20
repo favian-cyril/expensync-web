@@ -2,12 +2,6 @@
 	import { navigating, page } from '$app/stores';
     import NProgress from 'nprogress';
 	import 'nprogress/nprogress.css';
-	import { onMount } from 'svelte'
-	import { themeChange } from 'theme-change'
-
-	onMount(() => {
-		themeChange(false)
-	})
 
     navigating.subscribe((val) => {
         if (val) NProgress.start()
@@ -17,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Email and Password Demo - Supabase Auth Helpers</title>
+	<title>ExpenSync Dashboard</title>
 </svelte:head>
 
 <main>
