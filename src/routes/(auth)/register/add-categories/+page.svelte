@@ -47,6 +47,12 @@
 </script>
 
 <section>
+    <ul class="steps w-full mb-3">
+        <li class="step step-primary">Personal Details</li>
+        <li class="step step-primary">Add Categories</li>
+        <li class="step">Add Forwarding Address</li>
+        <li class="step">Setup Filters</li>
+    </ul>
     <div class="prose text-center mt-3 mb-5 max-w-lg mx-auto">
         <h1>Setup your Categories</h1>
         <p>Categories are required and are used to differentiate receipts. <br /> Please use simple terms that the AI can understand to ensure that receipts are labeled accordingly. <br />Here are a few examples that you can use to start:</p>

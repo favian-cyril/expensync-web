@@ -5,7 +5,7 @@
     import { add, dinero } from 'dinero.js'
 	import { goto } from "$app/navigation";
     export let data: PageData;
-    type FormItem = { uuid: string, category_id: string | null, email_content: string, SenderEmail: { email: string } | null, vendor: string | null, email_created: string | null, amount: number, other_amounts: number[] }
+    type FormItem = { uuid: string, category_id: string | null, email_content: string | null, SenderEmail: { email: string } | null, vendor: string | null, email_created: string | null, amount: number, other_amounts: number[] }
     let formData: FormItem[] = data.invoices?.map(({ uuid, category_id, email_content, SenderEmail, vendor, email_created, amount, other_amounts }) => ({ uuid, category_id, email_content, SenderEmail, vendor, email_created, amount, other_amounts })) || [];
     let deletedData: FormItem[] = [];
     let loading = false;
@@ -75,8 +75,9 @@
                         </select>
                     </td>
                     <td>
-                        <button class="btn btn-outline btn-sm" on:click={() => handleShowDialog(invoice.email_content)}>View content</button>
-                        
+                        {#if invoice.email_content}
+                            <button class="btn btn-outline btn-sm" on:click={() => handleShowDialog(invoice?.email_content || '')}>View content</button>
+                        {/if}
                     </td>
                     <td><button class="btn btn-accent btn-sm" on:click={() => handleRemoveItem(index)}>remove</button></td>
                 </tr>

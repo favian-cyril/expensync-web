@@ -2,6 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
+    fontFamily: {
+      sans: ['Montserrat', 'sans-serif']
+    },
     extend: {
       transitionProperty: {
         'width': 'width'

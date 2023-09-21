@@ -22,13 +22,13 @@
 
 <h2>3. Privacy</h2>
 
-<p>Your use of the Service is also governed by our <a href="[Link to Privacy Policy]">Privacy Policy</a>.</p>
+<p>Your use of the Service is also governed by our <a href="/privacy">Privacy Policy</a>.</p>
 
 <h2>4. Intellectual Property</h2>
 
 <h3>4.1. Ownership</h3>
 
-<p>All content and materials available on the Service, including but not limited to text, graphics, logos, images, and software, are owned by [Your Company] or its licensors and are protected by copyright, trademark, and other intellectual property laws.</p>
+<p>All content and materials available on the Service, including but not limited to text, graphics, logos, images, and software, are owned by ExpenSync or its licensors and are protected by copyright, trademark, and other intellectual property laws.</p>
 
 <!-- Add more sections as needed -->
 

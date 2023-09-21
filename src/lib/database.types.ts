@@ -268,6 +268,7 @@ export interface Database {
           email: string
           first_name: string
           last_name: string
+          save_email_content: boolean
           updated_at: string
           uuid: string
         }
@@ -278,6 +279,7 @@ export interface Database {
           email: string
           first_name: string
           last_name: string
+          save_email_content?: boolean
           updated_at?: string
           uuid?: string
         }
@@ -288,6 +290,7 @@ export interface Database {
           email?: string
           first_name?: string
           last_name?: string
+          save_email_content?: boolean
           updated_at?: string
           uuid?: string
         }

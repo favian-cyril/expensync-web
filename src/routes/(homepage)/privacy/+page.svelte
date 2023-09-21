@@ -15,11 +15,11 @@
 <p>We may collect the following types of sensitive data:</p>
 
 <ul>
-    <li><strong>Email Content:</strong> We collect email content chosen by the user when they use our service.</li>
     <li><strong>User Data:</strong> We collect user email addresses and names.</li>
     <li><strong>User Behavior Analytics:</strong> We use analytics tools to collect information about user behavior on our service. This may include, but is not limited to, page views, clicks, and interactions with our platform. This data is collected to help us improve our service and understand user preferences better.</li>
     <li><strong>Error Tracking:</strong> We use error tracking tools to monitor and record technical errors and issues that may arise while using our service. This data helps us identify and resolve technical problems quickly.</li>
     <li><strong>Receipt Information:</strong> In addition to email content and user data, we also store receipt information, including vendor names and transaction amounts, to facilitate and enhance the functionality of our service.</li>
+    <li><strong>Email Content (Optional):</strong> We offer an optional feature that allows users to save email content. When this feature is enabled, we collect and store email content to improve the accuracy of our service and provide additional functionality.</li>
 </ul>
 
 <h2>How We Use Your Information</h2>
@@ -38,11 +38,11 @@
 <p>We retain the collected data as follows:</p>
 
 <ul>
-    <li><strong>Email Content:</strong> We retain user-selected email content until the user deletes it or deletes their account.</li>
     <li><strong>User Data:</strong> We retain user email addresses and names as long as the user's account is active. If a user deletes their account, we retain their email data separately, disconnected from personal identifiers, for statistical and analytical purposes.</li>
     <li><strong>User Behavior Analytics:</strong> User behavior analytics data is retained for a specified period to analyze trends and improve our service.</li>
     <li><strong>Error Tracking Data:</strong> Error tracking data is retained for a specified period to identify and resolve technical issues.</li>
     <li><strong>Receipt Information:</strong> Receipt information is retained to facilitate the functionality of our service and may be stored for as long as it's necessary to provide the service.</li>
+    <li><strong>Email Content (Optional):</strong> Email content is collected and stored only when the user enables the optional feature. Users can delete their email content at any time through their account settings.</li>
 </ul>
 
 <h2>User Rights</h2>

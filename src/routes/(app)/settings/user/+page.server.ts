@@ -1,22 +1,23 @@
-import type { Actions } from "@sveltejs/kit";
-import currencies from '@dinero.js/currencies';
+import type { Actions } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async ({ locals: { supabase }}) => {
+    const { data: userData } = await supabase.from('User').select('*')
+    return {
+        userData: userData?.at(0)
+    };
+};
 
 export const actions: Actions = {
     default: async ({ request, locals: { supabase, getSession } }) => {
         const session = await getSession();
         const data = await request.formData();
-        const currency = data.get('currency')?.toString() || '';
         try {
-            const currency_object = JSON.stringify(currencies[currency])
-            const { error } = await supabase.from('User').upsert({
-                uuid: session?.user.id,
-                email: session?.user.email || '',
+            const { error } = await supabase.from('User').update({
                 first_name: data.get('firstName')?.toString() || '',
                 last_name: data.get('lastName')?.toString() || '',
-                currency: data.get('currency')?.toString() || '',
                 save_email_content: Boolean(data.get('save_email_content')),
-                currency_object,
-            })
+            }).eq('uuid', session?.user.id)
             if (error) return {
                 error: error.message
             }

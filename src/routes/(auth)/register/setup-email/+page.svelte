@@ -7,6 +7,12 @@
     import stepsix from '$lib/assets/step-6.png';
 </script>
 <section class="prose">
+    <ul class="steps w-full mb-3">
+        <li class="step step-primary">Personal Details</li>
+        <li class="step step-primary">Add Categories</li>
+        <li class="step step-primary">Add Forwarding Address</li>
+        <li class="step">Setup Filters</li>
+    </ul>
     <h2 class="text-center">Setting up forwarding email in Gmail</h2>
     <div class="grid grid-cols-2 gap-2 items-start">
         <div>
@@ -25,7 +31,7 @@
         </div>
         <div>
             <h2>Step 3:</h2>
-            <p>Click on Add a forwarding address and a dialog will pop up. Enter the address <a>invoice@expensync.com</a> and click on next.</p>
+            <p>Click on Add a forwarding address and a dialog will pop up. Enter the address invoice@expensync.com <button class="btn btn-circle btn-outline btn-sm" on:click={() => navigator.clipboard.writeText('invoice@expensync.com')}><i class="fa-regular fa-copy"></i></button> and click on next.</p>
         </div>
         <div>
             <img src={stepthree} alt="Step Three" />

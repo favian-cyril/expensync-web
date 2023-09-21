@@ -34,7 +34,7 @@
 				</a>
 			</li>
 			<li class="border-solid border-primary border-b-1">
-				<a class={`flex justify-between ${$page.url.pathname === '/settings' ? 'active' : ''}`} href="/settings">
+				<a class={`flex justify-between ${$page.url.pathname.includes('/settings') ? 'active' : ''}`} href="/settings">
 					<div class={minimize ? 'hidden' : 'text-md hidden md:block'}>Settings</div>
 					<i class="fa-solid fa-gear text-xl w-5 text-center mx-auto md:mx-0"></i>
 				</a>

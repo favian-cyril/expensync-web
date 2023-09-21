@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ parent, locals: { supabase }, }) =>
         currency,
         invoices: invoiceData?.map(val => ({
             ...val,
-            other_amounts: new Set(val.other_amounts.filter(i => !!i))
+            other_amounts: [...new Set(val.other_amounts.filter(i => !!i))]
         })),
         categories,
     };
@@ -29,7 +29,7 @@ export const load: PageServerLoad = async ({ parent, locals: { supabase }, }) =>
 
 export const actions: Actions = {
     default:async ({ request, locals: { supabase } }) => {
-        type FormItem = { uuid: string, category_id: string | null, email_content: string, SenderEmail: { email: string } | null, vendor: string, created_at: string | null, amount: string, other_amounts: string[] };
+        type FormItem = { uuid: string, category_id: string | null, email_content: string | null, SenderEmail: { email: string } | null, vendor: string, created_at: string | null, amount: string, other_amounts: string[] };
         const data = await request.formData();
         const parsedData = JSON.parse(data.get('data') as string);
         const deletedData = JSON.parse(data.get('deleted') as string);

@@ -8,6 +8,12 @@
 </script>
 
 <section>
+    <ul class="steps w-full mb-3">
+        <li class="step step-primary">Personal Details</li>
+        <li class="step step-primary">Add Categories</li>
+        <li class="step step-primary">Add Forwarding Address</li>
+        <li class="step step-primary">Setup Filters</li>
+    </ul>
     {#if data.url}
         <a href={data.url}>
             <button class="btn w-full btn-outline my-5"><i class="fa-regular fa-envelope mr-1"></i>Authorize Gmail</button>
