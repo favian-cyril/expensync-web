@@ -1,12 +1,5 @@
 <script lang="ts">
-	import { navigating, page } from '$app/stores';
-    import NProgress from 'nprogress';
-	import 'nprogress/nprogress.css';
-
-    navigating.subscribe((val) => {
-        if (val) NProgress.start()
-        else NProgress.done()
-    })
+	import { page } from '$app/stores';
 	let minimize = false;	
 </script>
 
