@@ -35,4 +35,20 @@
           <p>Currently only gmail are supported but we plan to add a manual setup so that any email address are able to use ExpenSync.</p>
         </div>
       </div>
+      <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+        <div class="collapse-title text-xl font-medium">
+          Does this mean that my emails will be saved?
+        </div>
+        <div class="collapse-content">
+          <p>There is an option to opt-out of saving email content in the user options. Doing so will disable the option to review email content when reviewing receipt and opt-out of improving the accuracy of the AI model.</p>
+        </div>
+      </div>
+      <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+        <div class="collapse-title text-xl font-medium">
+          What is the purpose of storing email content?
+        </div>
+        <div class="collapse-content">
+          <p>Email content is stored so that users can easily review and verify if the information is correct, it will also be used to further improve the accuracy of category tagging and value extraction. Email receipt usually don't contain sensitive information such as full credit card number or personal info but if you feel like it has sensitive information you can choose to turn off this feature.</p>
+        </div>
+      </div>
 </div>

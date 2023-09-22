@@ -8,7 +8,7 @@
 <div class="navbar bg-base-100 shadow-sm px-10 sticky top-0 z-10">
     <div class="flex-1 gap-10">
       <a class="btn btn-ghost normal-case text-xl" href="/">ExpenSync</a>
-      <a href="/privacy">Privacy</a>
+      <!-- <a href="/about">About</a> -->
       <a href="/faq">FAQ</a>
     </div>
     <div class="flex-none gap-10">
@@ -28,7 +28,7 @@
 <footer class="footer p-10 bg-neutral text-neutral-content justify-evenly">
     <nav>
       <header class="footer-title">About Us</header> 
-      <!-- <a class="link link-hover" >About us</a> -->
+      <!-- <a class="link link-hover" href="/about" >About</a> -->
       <a class="link link-hover" href="mailto:support@expensync.com">Contact</a>
     </nav> 
     <nav>

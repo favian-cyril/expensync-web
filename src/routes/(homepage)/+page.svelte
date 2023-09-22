@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-    import chatgpt from '$lib/assets/icons8-chatgpt-192.svg';
+    import chatgpt from '$lib/assets/icons8-chatgpt-75.png';
     import email from '$lib/assets/envelope-regular.svg';
     import csv from '$lib/assets/file-csv-solid.svg';
     import pie from '$lib/assets/chart-pie-solid.svg';
     import database from '$lib/assets/database-solid.svg';
     import hero1 from '$lib/assets/hero-1.png';
     import hero2 from '$lib/assets/hero-2.png';
+    import hero3 from '$lib/assets/hero-3.png';
 
     onMount(() => {
         const ctx = canvas.getContext('2d');
@@ -100,7 +101,7 @@
     <div class="hero-content lg:flex-row flex-col-reverse">
       <div class="max-w-3xl">
         <h1 class="text-5xl font-bold">Automate Your Inbox.</h1>
-        <p class="py-6">Effortlessly extract receipts, invoices, and more. Save time, whether it's for personal or business use. Works with any email client, with any template.</p>
+        <p class="py-6">Effortlessly extract receipts, invoices, and more. Save time, whether it's for personal or business use.</p>
         <a class="btn btn-primary" href="/login?auth-type=signup">Get Started</a>
       </div>
       <div>
@@ -110,21 +111,22 @@
 </div>
 <div class="h-40 bg-base-100"></div>
 <div class="hero min-h-[75vh] bg-base-200">
-    <div class="hero-content lg:flex-row flex-col-reverse">
-        <div class="max-w-3xl">
-            <img src={hero1} alt="analytics" class="rounded-md shadow-md" />
+    <div class="hero-content flex-col-reverse">
+        <div class="max-w-6xl flex flex-col lg:flex-row gap-2">
+            <img src={hero3} alt="email" class="rounded-md shadow-md lg:w-1/2">
+            <img src={hero1} alt="analytics" class="rounded-md shadow-md lg:w-1/2" />
         </div>
-        <div class="max-w-3xl">
+        <div class="max-w-3xl text-center">
           <h1 class="text-5xl font-bold">Analyze your spending.</h1>
-          <p class="py-6">Real-time data analytics makes it easy to track your spending.</p>
+          <p class="py-6">Automatically turn receipts in your inbox into a report you can easily understand. <br> Receipts can also skip the inbox and declutter your emails.</p>
         </div>
       </div>
 </div>
 <div class="hero min-h-[75vh] bg-base-200">
-    <div class="hero-content lg:flex-row flex-col-reverse">
-        <div class="max-w-3xl">
-            <h1 class="text-5xl font-bold">Track your data.</h1>
-            <p class="py-6">Intuitive and familiar UI to manage your own data.</p>
+    <div class="hero-content flex-col">
+        <div class="max-w-3xl text-center">
+            <h1 class="text-5xl font-bold">Take control of your data.</h1>
+            <p class="py-6">Own your information with a user-friendly interface or Download as CSV to manage it your own way.</p>
         </div>
         <div class="max-w-3xl">
             <img src={hero2} alt="analytics" class="shadow-md" />

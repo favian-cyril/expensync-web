@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { themeChange } from 'theme-change';
 	let minimize = false;	
+	onMount(() => {
+		themeChange(false)
+	})
 </script>
 
 <svelte:head>
