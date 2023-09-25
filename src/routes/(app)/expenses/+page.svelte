@@ -57,9 +57,9 @@
 
 <div class="mx-auto flex justify-center flex-col w-fit">
     <a class="btn btn-primary w-fit mb-2 self-end" href={`/expenses/download${$page.url.search}`} target="_blank">Download CSV</a>
-    <table class="table table-zebra table-auto">
+    <table class="table table-zebra table-auto shadow-md">
         <thead>
-            <tr>
+            <tr class="bg-base-100">
                 <th>
                     <div class="flex flex-row justify-between">
                         <button

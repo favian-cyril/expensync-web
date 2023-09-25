@@ -3,9 +3,6 @@
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
 	let minimize = false;	
-	onMount(() => {
-		themeChange(false)
-	})
 </script>
 
 <svelte:head>
@@ -45,7 +42,7 @@
 				</label>
 			</div>	
 		</ul>
-		<div class="w-full flex-wrap pt-5 	bg-base-300">
+		<div class="w-full flex-wrap pt-5 bg-base-300">
 			<slot />
 		</div>
 	</div>
