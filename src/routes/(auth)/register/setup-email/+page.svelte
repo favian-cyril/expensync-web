@@ -14,6 +14,7 @@
         <li class="step">Setup Filters</li>
     </ul>
     <h2 class="text-center">Setting up forwarding email in Gmail</h2>
+    <p>This is only available on Gmail website, this setting is currently not in the Gmail App.</p>
     <div class="grid grid-cols-2 gap-2 items-start">
         <div>
             <h2>Step 1:</h2>

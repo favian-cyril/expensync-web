@@ -16,7 +16,7 @@
             <i class="fa-solid fa-bars"></i>
         </label>
         <ul tabindex="0" class="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-screen">
-          <li><a href="/faq" class="text-center">FAQ</a></li>
+          <li><a href="/faq" class="w-full btn btn-ghost">FAQ</a></li>
           <li>
             <label class="swap swap-rotate">
                 <input type="checkbox" data-toggle-theme="dark,lofi">
