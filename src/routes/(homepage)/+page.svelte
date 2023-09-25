@@ -11,9 +11,8 @@
 
     onMount(() => {
         const ctx = canvas.getContext('2d');
-
-        const iconSize = 75;
-        const iconSpacing = 200;
+        let iconSize = 75;
+        let iconSpacing = 200;
         const numIcons = 3;
         const pipelineColor = '#000';
         const dotSize = 5;
@@ -89,7 +88,17 @@
 
             requestAnimationFrame(draw);
         }
+        function resizeCanvas() {
+            iconSize = canvas.width / 8;
+            iconSpacing = canvas.width / 3;
+            canvas.width = canvas.parentElement?.clientWidth || 600// Set canvas width
+            canvas.height = canvas.parentElement?.clientHeight || 200 // Set canvas height
+            // Call your drawing function here to redraw your responsive content
+        }
 
+        // Call the resizeCanvas function initially and whenever the window is resized
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
         draw(); // Start the animation loop
 	})
     let canvas: HTMLCanvasElement;
@@ -99,13 +108,13 @@
 
 <div class="hero min-h-[75vh] bg-base-200">
     <div class="hero-content lg:flex-row flex-col-reverse">
-      <div class="max-w-3xl">
+      <div class="max-w-3xl w-full lg:w-1/2">
         <h1 class="text-5xl font-bold">Automate Your Inbox.</h1>
         <p class="py-6">Effortlessly extract receipts, invoices, and more. Save time, whether it's for personal or business use.</p>
         <a class="btn btn-primary" href="/login?auth-type=signup">Get Started</a>
       </div>
-      <div>
-        <canvas bind:this={canvas} width="600" height="200"></canvas>
+      <div class="max-w-full w-full lg:w-1/2 h-24">
+        <canvas bind:this={canvas} class="block"></canvas>
       </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 </script>
 
 <div class="flex justify-center">
-    <ul class="menu bg-base-200 w-2/5 rounded-box">
+    <ul class="menu bg-base-200 lg:w-2/5 w-full rounded-box">
         <li><a href="/settings/user">User Settings<i class="fa-regular fa-circle-user"></i></a></li>
         <li><a href="/settings/categories">Categories<i class="fa-solid fa-tags"></i></a></li>
         <li><span>User Email<i class="fa-regular fa-envelope"></i></span></li>

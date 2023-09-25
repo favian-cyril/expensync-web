@@ -61,7 +61,7 @@ export const load: PageServerLoad = async ({ parent, locals: { supabase }, url }
 		supabase.rpc('calculate_average_amount_in_date_range', { start_date: startDate, end_date: today }).then(res => {
 			supabase.rpc('calculate_average_amount_in_date_range', { start_date: comparisonDate, end_date: startDate }).then(resLast => {
 				const avgNumber = res.data || 0;
-				const lastAvgNumber = resLast.data || 0;
+				const lastAvgNumber = res.data || 0;
 				const percentIncrease = avgNumber && lastAvgNumber ? avgNumber / lastAvgNumber : 0;
 				resolve(percentIncrease)
 			})
