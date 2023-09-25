@@ -2,7 +2,7 @@
 </script>
 
 <div class="max-w-3xl my-10 mx-auto gap-4 flex-col flex">
-    <div class="text-2xl">Frequently Asked Questions</div>
+    <div class="text-2xl font-semibold text-center my-5">Frequently Asked Questions</div>
     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
         <div class="collapse-title text-xl font-medium">
           How does it work?

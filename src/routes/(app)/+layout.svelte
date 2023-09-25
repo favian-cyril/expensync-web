@@ -14,7 +14,7 @@
 
 <main>
 	<div class="flex flex-row h-max min-h-screen">
-		<ul class={`menu bg-base-200 ${minimize ? 'w-14' : 'md:w-1/6 w-14'} border-r-2 border-primary transition-width duration-300 ease-in-out`}>
+		<ul class={`p-0 menu bg-base-200 ${minimize ? 'w-14' : 'md:w-1/6 w-14'} border-r-2 border-primary transition-width duration-300 ease-in-out`}>
 			<div class="flex-row justify-between p-2 shadow-md lg:flex hidden">
 				<div class={minimize ? 'hidden' : "text-lg"}>ExpenSync</div>
 				<button on:click={() => {minimize = !minimize}} class="btn btn-ghost btn-sm"><i class={minimize ? "fa-solid fa-chevron-right" : "fa-solid fa-chevron-left"}></i></button>

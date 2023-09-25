@@ -94,7 +94,7 @@
                             >
                                 <i class="fa-solid fa-filter"></i>
                             </summary>
-                            <div class="dropdown-content  z-[1] bg-base-100 rounded-box p-2 shadow">
+                            <div class="dropdown-content z-[1] bg-base-100 rounded-box p-2 shadow">
                                 <ul class="menu max-h-28 overflow-x-scroll flex-nowrap mb-2">
                                     {#each data.senderEmails || [] as sender}
                                         <li class="border-b-2 border-black">

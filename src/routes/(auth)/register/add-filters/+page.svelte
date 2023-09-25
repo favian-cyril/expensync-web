@@ -24,7 +24,7 @@
             <p>This will automatically create filters to auto-forward receipts. Make sure filters are correct to ensure emails are sent correctly</p>
         </div>
         <form method="post">
-        <table class="table table-zebra table-compact">
+        <table class="table table-zebra table-sm">
             <thead>
                 <tr>
                     <td></td>

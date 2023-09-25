@@ -38,7 +38,7 @@
 </script>
 
 <div class="flex flex-col justify-center">
-    <table class="table table-zebra table-compact">
+    <table class="table table-zebra table-sm">
         <thead>
             <tr>
                 <th>Date</th>

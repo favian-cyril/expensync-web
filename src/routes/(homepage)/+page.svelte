@@ -89,10 +89,10 @@
             requestAnimationFrame(draw);
         }
         function resizeCanvas() {
-            iconSize = canvas.width / 8;
-            iconSpacing = canvas.width / 3;
             canvas.width = canvas.parentElement?.clientWidth || 600// Set canvas width
             canvas.height = canvas.parentElement?.clientHeight || 200 // Set canvas height
+            iconSpacing = canvas.width / 3;
+            iconSize = canvas.width / 8;
             // Call your drawing function here to redraw your responsive content
         }
 
