@@ -1,40 +1,30 @@
-# Supabase Email and Password Server-side login with SvelteKit
+# ExpenSync web client
 
-## Getting started
-
-Install the dependencies for this project by running the following command from this repository root directory in your terminal
-
-```bash
-pnpm install
-```
-
+Web client for ExpenSync based on supabase. Production link: https://expensync.com
+## Tech Stack
+ 
+SvelteKit, Tailwind, DaisyUI, Supabase-js, chart.js, Dinero, dayjs.
+ 
 ## Project setup
 
-1. Create a project on the Supabase dashboard
-2. Get the `URL` and `anon` key from your [Settings > API](https://app.supabase.com/project/_/settings/api) section
-3. Copy the `.env.example` file in this project and create a new `.env` file from it
-4. Replace `PUBLIC_SUPABASE_URL` with the `URL` from step 2 and `PUBLIC_SUPABASE_ANON_KEY` with `anon` key from step 2
-5. Copy the `SQL` below and paste it inside of the [SQL Editor](https://app.supabase.com/project/_/sql) section
-
-```sql
-DROP TABLE IF EXISTS "public"."test";
-
--- Table Definition
-CREATE TABLE "public"."test" (
-    "id" int8 NOT NULL,
-    "created_at" timestamptz DEFAULT now(),
-    PRIMARY KEY ("id")
-);
+.env structure
 ```
-
-6. Build the package that this example relies on using the following command
-
-```bash
-pnpm build:sveltekit
+PUBLIC_SUPABASE_URL=
+PUBLIC_SUPABASE_ANON_KEY=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+REDIRECT_SETUP_EMAIL_URL=
 ```
-
-7. Run the following command from the repository root
-
-```bash
-pnpm dev --filter=@example/sveltekit -- --open
+run install npm
+```
+npm i
+```
+generate supabase types 
+```
+npx supabase link --project-ref {project}
+npx supabase gen types typescript --linked > src/lib/database.types.ts
+```
+run project
+```
+npm run dev
 ```
