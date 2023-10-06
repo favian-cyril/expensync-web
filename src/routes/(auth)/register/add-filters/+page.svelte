@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import Category from '$lib/components/Category.svelte';
 	import type { ActionData, PageData } from './$types';
+    import GoogleIcon from '$lib/assets/btn_google_light_normal_ios.svg'
     export let data: PageData;
     export let form: ActionData;
     let indexEdit: number | null;
@@ -15,8 +16,8 @@
         <li class="step step-primary">Setup Filters</li>
     </ul>
     {#if data.url}
-        <a href={data.url}>
-            <button class="btn w-full btn-outline my-5"><i class="fa-regular fa-envelope mr-1"></i>Authorize Gmail</button>
+        <a href={data.url} class="w-fit mx-auto block">
+            <button class="btn pl-0 my-5 border-0 shadow-md bg-white normal-case text-gray-500 rounded-none font-semibold"><img src={GoogleIcon} alt="google" />Sign in with Google</button>
         </a>
     {:else}
         <div class="prose text-center mt-3 mb-5 max-w-lg mx-auto">

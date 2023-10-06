@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
 	import Category from "$lib/components/Category.svelte";
+    import GoogleIcon from '$lib/assets/btn_google_light_normal_ios.svg'
 
     let indexEdit: number | null;
     export let data: PageData;
@@ -15,9 +16,9 @@
               <li><a href="/settings/sender-email">Sender Email</a></li> 
             </ul>
         </div>
-        {#if data.url}
-            <a href={data.url}>
-                <button class="btn w-full btn-outline my-5"><i class="fa-regular fa-envelope mr-1"></i>Authorize Gmail</button>
+            {#if data.url}
+            <a href={data.url} class="w-fit mx-auto block">
+                <button class="btn pl-0 my-5 border-0 shadow-md bg-white normal-case text-gray-500 rounded-none font-semibold"><img src={GoogleIcon} alt="google" />Sign in with Google</button>
             </a>
             {:else}
             <form method="post">
