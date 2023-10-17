@@ -19,6 +19,11 @@
         <a href={data.url} class="w-fit mx-auto block">
             <button class="btn pl-0 my-5 border-0 shadow-md bg-white normal-case text-gray-500 rounded-none font-semibold"><img src={GoogleIcon} alt="google" />Sign in with Google</button>
         </a>
+    {:else if data.error}
+    <div class="flex flex-col justify-items-center text-center">
+        <p class="text-red-500">Error: {data.error}</p>
+        <a class="btn btn-link" href="/register/setup-email" target="_blank">Click here to see instructions</a>
+    </div>
     {:else}
         <div class="prose text-center mt-3 mb-5 max-w-lg mx-auto">
             <h1>Setup Filters</h1>

@@ -25,6 +25,17 @@ export const load: PageServerLoad = async ({ parent, locals: { supabase }, cooki
         scope: scopes,
         state,
     })
+    if (token) {
+        oauth2Client.setCredentials({ access_token: token })
+        const url = 'https://gmail.googleapis.com/gmail/v1/users/me/settings/forwardingAddresses/invoice@expensync.com'
+        try {
+            await oauth2Client.request({ url, method: 'GET' });
+        } catch (e) {
+            return {
+                error: 'Email Forwarding not yet setup. Please add the forwarding address first'
+            }
+        }
+    }
     return {
         url,
         senderData,
